@@ -14,7 +14,7 @@ import shutil
 import zipfile
 
 # Root directory of the project
-ROOT_DIR = os.path.abspath("/content/Mask_RCNN")
+ROOT_DIR = os.path.abspath("/Mask_RCNN")
 print("VERS 0.2")
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
@@ -41,10 +41,6 @@ if not os.path.exists(COCO_MODEL_PATH):
 
 class CustomConfig(Config):
     def __init__(self, num_classes):
-
-        if num_classes > 1:
-            raise ValueError("{} classes were found. This is a DEMO version, and it only supports 1 class. Get the PRO version to"
-                  " continue the training.".format(num_classes))
 
         self.NUM_CLASSES = num_classes + 1
         super().__init__()
